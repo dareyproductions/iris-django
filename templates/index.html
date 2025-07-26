@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Iris Predictor</title>
+</head>
+<body>
+    <h2>Predict Iris Flower Species</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <label>Sepal Length:</label><input type="text" name="sepal_length"><br>
+        <label>Sepal Width:</label><input type="text" name="sepal_width"><br>
+        <label>Petal Length:</label><input type="text" name="petal_length"><br>
+        <label>Petal Width:</label><input type="text" name="petal_width"><br>
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction %}
+        <h3>Prediction: {{ prediction }}</h3>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,373 @@
+        /* CSS Variables for Design System */
+        :root {
+            --background: hsl(155, 15%, 98%);
+            --foreground: hsl(155, 85%, 8%);
+            --card: hsl(0, 0%, 100%);
+            --card-foreground: hsl(155, 85%, 8%);
+            --primary: hsl(155, 70%, 35%);
+            --primary-foreground: hsl(155, 15%, 98%);
+            --secondary: hsl(270, 50%, 85%);
+            --secondary-foreground: hsl(270, 85%, 25%);
+            --muted: hsl(155, 25%, 92%);
+            --muted-foreground: hsl(155, 15%, 45%);
+            --accent: hsl(270, 45%, 70%);
+            --accent-foreground: hsl(270, 85%, 15%);
+            --border: hsl(214.3, 31.8%, 91.4%);
+            --input: hsl(214.3, 31.8%, 91.4%);
+            --destructive: hsl(0, 84.2%, 60.2%);
+            --iris-setosa: hsl(270, 70%, 60%);
+            --iris-versicolor: hsl(155, 60%, 50%);
+            --iris-virginica: hsl(340, 70%, 55%);
+            --radius: 0.5rem;
+        }
+
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--background);
+            color: var(--foreground);
+            line-height: 1.6;
+            background-image: 
+                radial-gradient(circle at 25% 25%, hsla(155, 70%, 35%, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, hsla(270, 45%, 70%, 0.08) 0%, transparent 50%);
+        }
+
+        /* Layout */
+        .container {
+            min-height: 100vh;
+            padding: 2rem 1rem;
+        }
+
+        .max-w-4xl {
+            max-width: 1024px;
+            margin: 0 auto;
+        }
+
+        .max-w-2xl {
+            max-width: 672px;
+            margin: 0 auto;
+        }
+
+        /* Typography */
+        .title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-align: center;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            color: var(--muted-foreground);
+            font-size: 1.125rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        /* Cards */
+        .card {
+            background: hsla(0, 0%, 100%, 0.8);
+            backdrop-filter: blur(4px);
+            border: 1px solid hsla(155, 70%, 35%, 0.2);
+            border-radius: var(--radius);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+        }
+
+        .card-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card-description {
+            color: var(--muted-foreground);
+            font-size: 0.875rem;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        /* Grid Layout */
+        .grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .grid-md-2 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        /* Form Styles */
+        .form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .label {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--foreground);
+        }
+
+        .input {
+            padding: 0.5rem 0.75rem;
+            border: 1px solid var(--border);
+            border-radius: calc(var(--radius) - 2px);
+            background: hsla(0, 0%, 0%, 0.05);
+            font-size: 0.875rem;
+            transition: all 0.2s;
+        }
+
+        .input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px hsla(155, 70%, 35%, 0.2);
+        }
+
+        .input:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Button Styles */
+        .btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: calc(var(--radius) - 2px);
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--primary-foreground);
+        }
+
+        .btn-primary:hover:not(:disabled) {
+            background-color: hsl(155, 70%, 30%);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid var(--border);
+            color: var(--foreground);
+        }
+
+        .btn-outline:hover:not(:disabled) {
+            background-color: var(--accent);
+            color: var(--accent-foreground);
+        }
+
+        .btn-sm {
+            padding: 0.25rem 0.75rem;
+            font-size: 0.75rem;
+        }
+
+        .btn-lg {
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+        }
+
+        .btn-full {
+            width: 100%;
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Sample Buttons */
+        .sample-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .sample-label {
+            font-size: 0.75rem;
+            color: var(--muted-foreground);
+            width: 100%;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Results */
+        .result-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 16rem;
+            text-align: center;
+        }
+
+        .result-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .result-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .result-emoji {
+            font-size: 2.5rem;
+        }
+
+        .result-species {
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-transform: capitalize;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.25rem 0.75rem;
+            background-color: var(--secondary);
+            color: var(--secondary-foreground);
+            border-radius: calc(var(--radius) - 2px);
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .result-description {
+            font-size: 0.875rem;
+            color: var(--muted-foreground);
+        }
+
+        /* Probabilities */
+        .probabilities {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .probability-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .probability-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .probability-label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .probability-value {
+            font-size: 0.875rem;
+            color: var(--muted-foreground);
+        }
+
+        /* Progress Bar */
+        .progress {
+            width: 100%;
+            height: 0.5rem;
+            background-color: var(--muted);
+            border-radius: var(--radius);
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        /* Loading */
+        .loading {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .spinner {
+            width: 2rem;
+            height: 2rem;
+            border: 2px solid var(--muted);
+            border-top: 2px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Info Box */
+        .info-box {
+            margin-top: 3rem;
+            padding: 1rem;
+            background-color: hsla(155, 25%, 92%, 0.5);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+        }
+
+        .info-text {
+            font-size: 0.75rem;
+            color: var(--muted-foreground);
+            line-height: 1.4;
+        }
+
+        /* Utility Classes */
+        .hidden { display: none; }
+        .text-center { text-align: center; }
+        .mb-2 { margin-bottom: 0.5rem; }
+        .mt-6 { margin-top: 1.5rem; }
+        .opacity-50 { opacity: 0.5; }
+   
